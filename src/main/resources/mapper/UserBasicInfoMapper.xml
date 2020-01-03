@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserBasicInfoMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.UserBasicInfo" >
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="password" property="password" />
+        <result column="test_col" property="testCol" />
+    </resultMap>
+    <select id="findById" resultMap="BaseResultMap">
+        select * from t_user_basic_info where id = #{id}
+    </select>
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from t_user_basic_info
+    </select>
+</mapper>

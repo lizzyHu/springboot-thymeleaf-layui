@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>layout 后台大布局 - Layui</title>
+    <link th:href="@{/js/layui/css/layui.css}" rel="stylesheet"/>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">layui 后台布局</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq";; class="layui-nav-img"/>
+                    lizzy
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退了</a></li>
+        </ul>
+    </div>
+ 
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">所有商品</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;">列表三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item"><a href="">发布商品</a></li>
+            </ul>
+        </div>
+    </div>
+ 
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <!-- <div style="padding: 15px;">内容主体区域</div> -->
+        <table class="layui-hide" id="adminList"></table>
+    </div>
+ 
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+	
+	<script th:src="@{/js/layui/layui.js}"></script>
+	
+	<script>
+		//JavaScript代码区域
+		layui.use('element', function(){
+		  var element = layui.element;
+		 
+		});
+	</script>
+
+	<!-- th:inline="none" 属性解决layui的js中[[]]符号与thymeleaf中的冲突 -->
+	<script th:inline="none">
+	 
+		layui.use(['table'], function(){
+		  var table = layui.table;//使用数据表格
+		  
+		  table.render({
+		    elem: '#adminList',//选择html中对应的数据表格ID
+		    url:'user/list',//分页提交到spring boot 代码的映射名称
+		    method:'POST',
+		    limit:8,//每页显示的记录数量
+		    limits:[5,8,10,15,20],//可选择每页显示的数量
+		    page: true,//开启分页
+		    
+		    //设置表头的数组
+		    //field：后台传回的数字字段名，
+		    //title：表头文字
+		    //templet: function(data){} 数据表格请求后台回调函数，处理数据
+		    //return  表示在对应的列中输出的内容
+		   	cols: [[ 
+		   		{type:'checkbox',fixed: 'left'},
+		   		{field:'id', width:60, title:'ID'},
+		   		{field:'name',title:'真实姓名'},
+		   		{field:'password', width:60, title:'性别',
+		   			templet: function(data){
+		   				if (data.password == 1) {
+		   					return 	"<span>男</span>";
+		   				} else if(data.password == 2) {
+		   					return "<span>女</span>";
+		   				} else {
+		   					return "<span>保密</span>";
+		   				}
+		        	}
+		   		},   		
+		   		{fixed: 'right',title:'操作',width:150,
+		   			templet: function(data){
+		   				return 	"<a href='AdminInfo?id="+data.id+"' title='查看' class='layui-btn layui-btn-xs layui-btn-normal'><icon class='layui-icon'>&#xe60b;</icon></a>"+
+		   						"<a href='' title='编辑' class='layui-btn layui-btn-xs layui-btn-normal'><icon class='layui-icon'>&#xe642;</icon></a>"+
+		   						"<a href='' title='删除' class='layui-btn layui-bg-red layui-btn-xs layui-btn-normal'><icon class='layui-icon'>&#xe640;</icon></a>";
+		   			}	
+		   		}
+		    ]],
+		    done:function(res, curr, count){
+		    	console.log("表格渲染完成：");
+		    	console.log(res);
+		    	console.log(curr);
+		    	console.log(count);
+		    }
+		    
+		  });
+		});
+	</script>
+
+</body>
+</html>
