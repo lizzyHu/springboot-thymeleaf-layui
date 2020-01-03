@@ -31,11 +31,13 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@GetMapping("/list")
+	@PostMapping("/list")
 	public JSONObject list() {
 		JSONObject retObj = new JSONObject();
 		List<UserBasicInfo> list = userBasicInfoService.findAll();
-		retObj.put("users", list);
+		retObj.put("data", list);
+		retObj.put("code", 0);
+		retObj.put("count", ((null != list) ? list.size() : 0));
 		return retObj;
 	}
 	

@@ -79,23 +79,20 @@
 	
 	<script th:src="@{/js/layui/layui.js}"></script>
 	
-	<script>
+	<script th:inline="none">
+		//th:inline="none" 属性解决layui的js中[[]]符号与thymeleaf中的冲突 
 		//JavaScript代码区域
 		layui.use('element', function(){
 		  var element = layui.element;
 		 
 		});
-	</script>
 
-	<!-- th:inline="none" 属性解决layui的js中[[]]符号与thymeleaf中的冲突 -->
-	<script th:inline="none">
-	 
 		layui.use(['table'], function(){
 		  var table = layui.table;//使用数据表格
 		  
 		  table.render({
 		    elem: '#adminList',//选择html中对应的数据表格ID
-		    url:'user/list',//分页提交到spring boot 代码的映射名称
+		    url:'/user/list',//分页提交到spring boot 代码的映射名称
 		    method:'POST',
 		    limit:8,//每页显示的记录数量
 		    limits:[5,8,10,15,20],//可选择每页显示的数量
