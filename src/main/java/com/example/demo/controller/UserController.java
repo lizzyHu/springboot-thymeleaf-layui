@@ -41,9 +41,14 @@ public class UserController {
 		return retObj;
 	}
 	
-	@RequestMapping("/hello")
+	@RequestMapping("/home")
 	public String thymeleafHello() {
-		return "hello";
+		return "home";
+	}
+	
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
 	}
 	
 }
