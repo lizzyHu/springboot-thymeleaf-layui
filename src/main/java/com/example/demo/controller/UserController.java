@@ -51,4 +51,9 @@ public class UserController {
 		return "login";
 	}
 	
+	@RequestMapping("/error")
+	public String error() {
+		return "pages/404";
+	}
+	
 }

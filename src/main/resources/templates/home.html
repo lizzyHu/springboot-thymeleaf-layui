@@ -82,7 +82,7 @@
 				</ul>
 				<div class="layui-tab-content">
 					<div class="layui-tab-item layui-show">
-						<iframe src='./pages/welcome.html' frameborder="0" scrolling="yes" class="weIframe"></iframe>
+						<iframe th:replace='@{/pages/welcome.html}' frameborder="0" scrolling="yes" class="weIframe"></iframe>
 					</div>
 				</div>
 			</div>
@@ -116,8 +116,8 @@
 					admin = layui.admin,
 					menu = layui.menu;
 				$(function(){
-					menu.getMenu('./json/menu.json');
-					var login = JSON.parse(localStorage.getItem("login"));
+					menu.getMenu('../json/menu.json');
+					/* var login = JSON.parse(localStorage.getItem("login"));
 					if(login){
 						if(login===0){
 							window.location.href='login.html';
@@ -128,7 +128,7 @@
 					}else{
 						window.location.href='login.html';
 						return false;
-					}
+					} */
 				});
 			});
 

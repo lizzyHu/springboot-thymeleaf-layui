@@ -54,7 +54,13 @@ layui.define('jquery', function(exports) {
 			var subItems = [];
 			var subUl = $('<ul></ul>').addClass('sub-menu');
 			$.each(subList, function(idx, sub) {
-				var subItem = '<li id="menu' + sub.id + '"><a _href="' + sub.url + '"><i class="iconfont">&#xe6a7;</i><cite>' +
+				
+				var aHref = '<a th:href="@{' + sub.url + '}">'; 
+				if (sub.children && sub.children.length) {
+					aHref = '<a _href="' + sub.url + '">';
+				}
+				
+				var subItem = '<li id="menu' + sub.id + '">' + aHref + '<i class="iconfont">&#xe6a7;</i><cite>' +
 					sub.name + '</cite></a></li>';
 				subItems.push(subItem);
 				if (sub.children && sub.children.length) {
