@@ -10,12 +10,12 @@
 				"id": 2,
 				"name": "会员列表",
 				"icon": "",
-				"url": "/pages/member/list.html"
+				"url": "pages/member/list"
 			}, {
 				"id": 3,
 				"name": "会员删除",
 				"icon": "",
-				"url": "/pages/member/del.html"
+				"url": "pages/member/del"
 			}, {
 				"id": 4,
 				"name": "会员管理",
@@ -25,17 +25,17 @@
 					"id": 5,
 					"name": "输入框操作",
 					"icon": "",
-					"url": "/pages/member/addInput.html"
+					"url": "pages/member/addInput"
 				}, {
 					"id": 6,
 					"name": "三级菜单演示",
 					"icon": "",
-					"url": "/pages/404.html"
+					"url": "pages/404"
 				}, {
 					"id": 7,
 					"name": "导航菜单演示",
 					"icon": "&#xe70b;",
-					"url": "/pages/404.html"
+					"url": "pages/404"
 				}]
 			}]
 		},
@@ -48,12 +48,12 @@
 				"id": 9,
 				"name": "文章列表",
 				"icon": "",
-				"url": "/pages/article/list.html"
+				"url": "pages/article/list"
 			}, {
 				"id": 10,
 				"name": "分类管理",
 				"icon": "",
-				"url": "/pages/article/category.html"
+				"url": "pages/article/category"
 			}]
 		},
 		{
@@ -65,7 +65,7 @@
 				"id": 12,
 				"name": "订单列表",
 				"icon": "",
-				"url": "/pages/order/list.html"
+				"url": "pages/order/list"
 			}]
 		},
 		{
@@ -77,25 +77,25 @@
 				"id": 14,
 				"name": "管理员列表",
 				"icon": "",
-				"url": "/pages/admin/list.html"
+				"url": "pages/admin/list"
 			},
 			{
 				"id": 15,
 				"name": "角色管理",
 				"icon": "",
-				"url": "/pages/admin/role.html"
+				"url": "pages/admin/role"
 			},
 			{
 				"id": 16,
 				"name": "权限分类",
 				"icon": "",
-				"url": "/pages/admin/cate.html"
+				"url": "pages/admin/cate"
 			},
 			{
 				"id": 17,
 				"name": "权限管理",
 				"icon": "",
-				"url": "/pages/admin/rule.html"
+				"url": "pages/admin/rule"
 			}]
 		},
 		{
@@ -107,55 +107,55 @@
 				"id": 19,
 				"name": "拆线图",
 				"icon": "",
-				"url": "/pages/echarts/echarts1.html"
+				"url": "pages/echarts/echarts1"
 			},
 			{
 				"id": 20,
 				"name": "柱状图",
 				"icon": "",
-				"url": "/pages/echarts/echarts2.html"
+				"url": "pages/echarts/echarts2"
 			},
 			{
 				"id": 21,
 				"name": "地图",
 				"icon": "",
-				"url": "/pages/echarts/echarts3.html"
+				"url": "pages/echarts/echarts3"
 			},
 			{
 				"id": 22,
 				"name": "饼图",
 				"icon": "",
-				"url": "/pages/echarts/echarts4.html"
+				"url": "pages/echarts/echarts4"
 			},
 			{
 				"id": 23,
 				"name": "雷达图",
 				"icon": "",
-				"url": "/pages/echarts/echarts5.html"
+				"url": "pages/echarts/echarts5"
 			},
 			{
 				"id": 24,
 				"name": "k线图",
 				"icon": "",
-				"url": "/pages/echarts/echarts6.html"
+				"url": "pages/echarts/echarts6"
 			},
 			{
 				"id": 25,
 				"name": "热力图",
 				"icon": "",
-				"url": "/pages/echarts/echarts7.html"
+				"url": "pages/echarts/echarts7"
 			},
 			{
 				"id": 26,
 				"name": "仪表图",
 				"icon": "",
-				"url": "/pages/echarts/echarts8.html"
+				"url": "pages/echarts/echarts8"
 			},
 			{
 				"id": 27,
 				"name": "地图DIY实例",
 				"icon": "",
-				"url": "/pages/echarts/echarts9.html"
+				"url": "pages/echarts/echarts9"
 			}]
 		}
 	]

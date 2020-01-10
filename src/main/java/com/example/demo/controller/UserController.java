@@ -5,7 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +33,7 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@PostMapping("/list")
+	@GetMapping("/list")
 	public JSONObject list() {
 		JSONObject retObj = new JSONObject();
 		List<UserBasicInfo> list = userBasicInfoService.findAll();
@@ -54,6 +56,16 @@ public class UserController {
 	@RequestMapping("/error")
 	public String error() {
 		return "pages/404";
+	}
+	
+	@RequestMapping("/pages/{subUrl}/{operation}")
+	public String subMenu(@PathVariable("subUrl") String subUrl, @PathVariable("operation") String operation) {
+		
+		if (StringUtils.isEmpty(operation)) {
+			return "pages/404";
+		}
+		
+		return "/pages/" + subUrl + "/" + operation;
 	}
 	
 }

@@ -55,7 +55,7 @@ layui.define('jquery', function(exports) {
 			var subUl = $('<ul></ul>').addClass('sub-menu');
 			$.each(subList, function(idx, sub) {
 				
-				var aHref = '<a th:href="@{' + sub.url + '}">'; 
+				var aHref = '<a _href="' + sub.url + '" th:href="@{/' + sub.url + '}">'; 
 				if (sub.children && sub.children.length) {
 					aHref = '<a _href="' + sub.url + '">';
 				}
