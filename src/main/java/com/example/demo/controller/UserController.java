@@ -43,22 +43,12 @@ public class UserController {
 		return retObj;
 	}
 	
-	@RequestMapping("/home")
+	@GetMapping("/home")
 	public String thymeleafHello() {
 		return "home";
 	}
 	
-	@RequestMapping("/login")
-	public String login() {
-		return "login";
-	}
-	
-	@RequestMapping("/error")
-	public String error() {
-		return "pages/404";
-	}
-	
-	@RequestMapping("/pages/{subUrl}/{operation}")
+	@GetMapping("/pages/{subUrl}/{operation}")
 	public String subMenu(@PathVariable("subUrl") String subUrl, @PathVariable("operation") String operation) {
 		
 		if (StringUtils.isEmpty(operation)) {
